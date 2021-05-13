@@ -25,6 +25,8 @@ spec:
             value: "1"
           - name: ERROR
             value: "1"
+          - name: RUN_TIME
+            value: "1h0m"
         image: robotshop/rs-load:latest
         resources:
           limits:
