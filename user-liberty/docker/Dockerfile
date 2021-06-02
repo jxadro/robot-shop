@@ -1,4 +1,4 @@
-FROM websphere-liberty:javaee7
+FROM websphere-liberty:full-java11-openj9
 
 
 ADD ./*.war /opt/ibm/wlp/usr/servers/defaultServer/dropins/
