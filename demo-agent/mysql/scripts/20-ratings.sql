@@ -4,9 +4,8 @@ DEFAULT CHARACTER SET 'utf8';
 USE sample;
 
 CREATE TABLE sampletable (
-    id varchar(80) NOT NULL,
-    avalue INT NOT NULL,
-    PRIMARY KEY (sku)
+    id INT NOT NULL,
+    name INT NOT NULL
 ) ENGINE=InnoDB;
 
 
