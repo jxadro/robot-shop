@@ -1,6 +1,3 @@
-CREATE DATABASE sample
-DEFAULT CHARACTER SET 'utf8';
-
 USE sample;
 
 CREATE TABLE sampletable (
