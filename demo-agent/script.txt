@@ -1,8 +1,4 @@
-
-
-
-
-tail -f /opt/instana/agent/data/log/agent.log          
+>> Install instana agent without "-s"
 
 vi /opt/instana/agent/etc/instana/configuration.yaml
 
@@ -11,7 +7,9 @@ com.instana.plugin.generic.hardware:
   enabled: true
   availability-zone: 'Linux VM'
 
-systemctl restart instana-agent.service
+systemctl start instana-agent.service
+
+tail -f /opt/instana/agent/data/log/agent.log          
 
 
 docker run --rm --name mysql --network=host -p 3306:3306 --detach docker.io/jxadro/mysql-demo-agent:1.0
@@ -20,11 +18,9 @@ docker run --rm --name liberty --network=host -p 9080:9080 --detach --env HOST=n
   
 for ((i=1;10<=100;i++)); do   curl -H "Connection: close" --connect-timeout 1 --connect-timeout 1 newvm.mcmpoc.com:9080/newinsert; sleep 1; done
 
+curl newvm.mcmpoc.com:9080/getconnections
+
 curl newvm.mcmpoc.com:9080/reservememory/100
 curl newvm.mcmpoc.com:9080/free
 
-curl newvm.mcmpoc.com:9080/getconnections
-
 docker stop mysql
-
-
